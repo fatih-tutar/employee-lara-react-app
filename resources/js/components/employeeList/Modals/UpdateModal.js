@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ViewModal extends Component {
+class UpdateModal extends Component {
 
     constructor(props){
         super(props);
@@ -8,7 +8,7 @@ class ViewModal extends Component {
 
     render(){
         return (
-            <div className="modal fade" id={"viewModal"+this.props.modalId} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={"updateModal"+this.props.modalId} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                     <div className="modal-header">
@@ -18,9 +18,11 @@ class ViewModal extends Component {
                         </button>
                     </div>
                     <div className="modal-body">
-                        Name : <strong>{this.props.employeeData.currentEmployeeName}</strong>
-                        <hr/>
-                        Salary : <strong>{this.props.employeeData.currentEmployeeSalary}</strong>
+                        <form action="" className='form'>
+                            <div className="form-group">
+                                
+                            </div>
+                        </form>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -32,4 +34,4 @@ class ViewModal extends Component {
     }
 }
 
-export default ViewModal; 
+export default UpdateModal; 

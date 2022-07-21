@@ -38,8 +38,8 @@ class Table extends Component {
                                     <tr>
                                     <th scope="col" width="100px">#</th>
                                     <th scope="col" width="100px">Name</th>
-                                    <th scope="col" width="100px">Salary</th>
-                                    <th scope="col" width="100px">Actions</th>
+                                    <th scope="col" width="50px">Salary</th>
+                                    <th scope="col" width="150px">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
