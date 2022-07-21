@@ -5465,8 +5465,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5489,6 +5491,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -5499,68 +5504,148 @@ var UpdateModal = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(UpdateModal);
 
   function UpdateModal(props) {
+    var _this;
+
     _classCallCheck(this, UpdateModal);
 
-    return _super.call(this, props);
-  }
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "inputEmployeeName", function (event) {
+      _this.setState({
+        employeeName: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "inputEmployeeSalary", function (event) {
+      _this.setState({
+        employeeSalary: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateEmployeeData", function () {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/update/employee/data', {
+        employeeId: _this.props.modalId,
+        employeeName: _this.state.employeeName,
+        employeeSalary: _this.state.employeeSalary
+      }).then(function (response) {
+        console.log(response); //location.reload();
+      });
+    });
+
+    _this.state = {
+      employeeName: null,
+      employeeSalary: null
+    };
+    return _this;
+  } // Updating employee name state
+
 
   _createClass(UpdateModal, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      var _this$state$employeeN, _this$state$employeeS;
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "modal fade",
         id: "updateModal" + this.props.modalId,
         tabIndex: "-1",
         role: "dialog",
         "aria-labelledby": "exampleModalLabel",
         "aria-hidden": "true",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "modal-dialog",
           role: "document",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "modal-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "modal-header",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
                 className: "modal-title",
                 id: "exampleModalLabel",
                 children: "Employee Details"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "button",
                 className: "close",
                 "data-dismiss": "modal",
                 "aria-label": "Close",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                   "aria-hidden": "true",
                   children: "\xD7"
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "modal-body",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
                 action: "",
                 className: "form",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "form-group"
-                })
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "form-group",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "text",
+                    id: "employeeName",
+                    value: (_this$state$employeeN = this.state.employeeName) !== null && _this$state$employeeN !== void 0 ? _this$state$employeeN : "",
+                    onChange: this.inputEmployeeName
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "form-group",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "text",
+                    id: "employeeSalary",
+                    value: (_this$state$employeeS = this.state.employeeSalary) !== null && _this$state$employeeS !== void 0 ? _this$state$employeeS : "",
+                    onChange: this.inputEmployeeSalary
+                  })
+                })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "modal-footer",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                type: "submit",
+                className: "btn btn-info",
+                value: "Update",
+                onClick: this.updateEmployeeData
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "button",
                 className: "btn btn-secondary",
                 "data-dismiss": "modal",
                 children: "Close"
-              })
+              })]
             })]
           })
         })
       });
     }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(props, current_state) {
+      var employeeUpdate = {
+        employeeName: null,
+        employeeSalary: null
+      }; // Updating data from input.
+
+      if (current_state.employeeName && current_state.employeeName !== props.employeeData.currentEmployeeName) {
+        return null;
+      }
+
+      if (current_state.employeeSalary && current_state.employeeSalary !== props.employeeData.currentEmployeeSalary) {
+        return null;
+      } // Updating data from props below.
+
+
+      if (current_state.employeeName !== props.employeeData.currentEmployeeName || current_state.employeeName === props.employeeData.currentEmployeeName) {
+        employeeUpdate.employeeName = props.employeeData.currentEmployeeName;
+      }
+
+      if (current_state.employeeSalary !== props.employeeData.currentEmployeeSalary || current_state.employeeSalary === props.employeeData.currentEmployeeSalary) {
+        employeeUpdate.employeeSalary = props.employeeData.currentEmployeeSalary;
+      }
+
+      return employeeUpdate;
+    } // Updating employee data.
+
   }]);
 
   return UpdateModal;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UpdateModal);
 
