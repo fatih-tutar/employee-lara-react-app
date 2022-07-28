@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import ViewModal from './Modals/ViewModal';
 import UpdateModal from './Modals/UpdateModal';
+import DeleteModal from './Modals/DeleteModal';
 
 class TableActionButtons extends Component {
 
@@ -49,7 +50,15 @@ class TableActionButtons extends Component {
                     Update
                 </button>
                 <UpdateModal modalId = { this.props.eachRowId } employeeData = {this.state} />
-                <button type="button" className="btn btn-danger">Delete</button>
+                <button type="button" 
+                    className="btn btn-danger"
+                    data-toggle="modal"
+                    data-target={'#deleteModal'+this.props.eachRowId}
+                    onClick={() => this.getEmployeeDetails(this.props.eachRowId)}
+                >
+                    Delete
+                </button>
+                <DeleteModal modalId = { this.props.eachRowId } employeeData = {this.state} />
             </div>
         )
     }

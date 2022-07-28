@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class UpdateModal extends Component {
 
@@ -62,8 +64,10 @@ class UpdateModal extends Component {
             employeeName: this.state.employeeName,
             employeeSalary: this.state.employeeSalary
         }).then((response) => {
-            console.log(response);
-            //location.reload();
+            toast.success("Employee updated successfully!");
+            setTimeout(() => {
+                location.reload();
+            }, 2500)
         })
     }
 
@@ -83,6 +87,7 @@ class UpdateModal extends Component {
                             <div className="form-group">
                                 <input type="text"
                                     id='employeeName'
+                                    className='form-control mb-3'
                                     value={this.state.employeeName ?? ""}
                                     onChange={this.inputEmployeeName}
                                 />
@@ -90,6 +95,7 @@ class UpdateModal extends Component {
                             <div className="form-group">
                                 <input type="text"
                                     id='employeeSalary'
+                                    className='form-control mb-3'
                                     value={this.state.employeeSalary ?? ""}
                                     onChange={this.inputEmployeeSalary}
                                 />
